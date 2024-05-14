@@ -18,6 +18,10 @@
   --font-color-fourth: #fff;
   --font-color-fifth: #42d3ff;
   --line-color: #e6e6f0;
+  --line-divisor: #d6d6d6;
+  --button-color: #04d361;
+  --button-color-hover: #04a54c;
+  --outline-color: #000;
 }
 
 body,
@@ -30,7 +34,8 @@ label {
 }
 
 h1,
-legend {
+legend,
+footer input {
   font-family: var(--ff-heading);
 }
 
@@ -192,17 +197,17 @@ fieldset legend {
 }
 
 .checkbox-wrapper label::before {
-  content: '';
+  content: "";
   height: 2.4rem;
   width: 2.4rem;
   display: block;
 
-  border: 1px solid #e6e6f0;
+  border: 1px solid var(--line-color);
   border-radius: 8px;
 }
 
 .checkbox-wrapper input:focus + label::before {
-  outline: 3px solid black;
+  outline: 3px solid var(--outline-color);
 }
 
 .checkbox-wrapper input:checked + label::before {
@@ -214,12 +219,44 @@ fieldset legend {
   gap: 2rem;
 }
 
-.col-3 > div:nth-child(1){
+.col-3 > div:nth-child(1) {
   width: 100%;
 }
 
 footer {
   background: var(--bgc-footer);
-  border-radius: 0 0 8px 8px;
   height: 13.6rem;
+
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 0 0 8px 8px;
+  border-top: 1px solid var(--line-divisor);
+  padding: 4rem 6.4rem;
+
+  margin-bottom: 9rem;
+}
+
+footer .button {
+  background: var(--button-color);
+  height: 5.6rem;
+
+  border: none;
+  border-radius: 8px;
+  padding: 1.5rem 4rem;
+
+  color: var(--font-color-fourth);
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 2.6rem;
+
+  cursor: pointer;
+}
+
+footer .button:hover {
+  background: var(--button-color-hover);
+}
+
+input:invalid {
+  border: 2px solid red;
 }
